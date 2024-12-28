@@ -9,7 +9,7 @@ namespace ChildGuard.Services
         private readonly string _smtpServer = "smtp.gmail.com";
         private readonly int _smtpPort = 587;
         private readonly string _senderEmail = "amritsyangtan1@gmail.com"; // Replace with your email
-        private readonly string _senderPassword = " "; // Replace with your email password
+        private readonly string _senderPassword = " "; // ************************************************Replace with your email password
         private readonly Dictionary<string, string> _incidentTypeToEmail;
 
         public async Task<bool> SendEmailAsync(string recipientEmail, string subject, string body)
