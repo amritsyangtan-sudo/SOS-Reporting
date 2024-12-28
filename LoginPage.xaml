@@ -1,0 +1,21 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChildGuard.LoginPage"
+             Title="Login">
+
+    <VerticalStackLayout Padding="30" Spacing="20">
+        <Label Text="Login" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <!-- Role Selection -->
+        <Label Text="Select Role" FontSize="18" />
+        <Picker x:Name="RolePicker" Title="Choose Role">
+            <Picker.Items>
+                <x:String>End User</x:String>
+                <x:String>Authority User</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <!-- Login Button -->
+        <Button Text="Login" Clicked="OnLoginButtonClicked" BackgroundColor="#42A5F5" TextColor="White" CornerRadius="5" />
+    </VerticalStackLayout>
+</ContentPage>

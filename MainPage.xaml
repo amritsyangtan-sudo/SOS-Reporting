@@ -1,0 +1,248 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChildGuard.MainPage"
+             Title="ChildGuard">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Current Info Section -->
+            <Grid RowSpacing="10" ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Date and Time -->
+                <VerticalStackLayout Grid.Column="0" VerticalOptions="End">
+                    <Label x:Name="TemperatureLabel"
+                           FontSize="35"
+                           TextColor="LightGray"
+                           FontAttributes="Bold"/>
+                    <Label x:Name="LocationLabel"
+                           FontSize="15"
+                           TextColor="LightGray" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Welcome Section -->
+            <Grid RowSpacing="10" ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <VerticalStackLayout Grid.Column="0" VerticalOptions="Center">
+                    <Label Text="Welcome, Amrit!" 
+                           FontSize="20" 
+                           FontAttributes="Bold" 
+                           TextColor="Black" />
+                    <Label Text="We’re here to assist you." 
+                           FontSize="14" 
+                           TextColor="Gray" />
+                </VerticalStackLayout>
+
+                <Border Grid.Column="1" StrokeThickness="1" Stroke="Gray" Padding="0" HeightRequest="60" WidthRequest="60"
+                        HorizontalOptions="End" VerticalOptions="Center">
+                    <Border.StrokeShape>
+                        <Ellipse />
+                    </Border.StrokeShape>
+                    <Image Source="unnamed2.png" Aspect="AspectFill" />
+                </Border>
+            </Grid>
+
+            <!-- Cards Section -->
+            <Grid RowSpacing="15" ColumnSpacing="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- SOS Alert Card -->
+                <Border Grid.Column="0" StrokeThickness="0.05" Stroke="#FF5252" BackgroundColor="#FFEDEE" Padding="15"
+                        HeightRequest="160" VerticalOptions="Start">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="17" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Teal" Opacity="0.1" Offset="4,4" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                        <Label Text="Send SOS Alert" 
+                               FontSize="17" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start" />
+                        <Label Text="Send SOS alert to your emergency contacts."
+                               FontSize="12" 
+                               HorizontalOptions="Start" 
+                               TextColor="Gray" />
+                        <Button Text="Send SOS Alert" 
+                                BackgroundColor="#FF5252" 
+                                TextColor="White" 
+                                FontAttributes="Bold" 
+                                CornerRadius="5" 
+                                HeightRequest="40"
+                                Clicked="OnSOSButtonClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Manage Contacts Card -->
+                <Border Grid.Column="1" StrokeThickness="0.05" Stroke="#FFA726" BackgroundColor="#FFF3E0" Padding="15" 
+                        HeightRequest="160" VerticalOptions="Start">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="17" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Teal" Opacity="0.1" Offset="4,4" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                        <Label Text="Emergency Contacts" 
+                               FontSize="17" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start" />
+                        <Label Text="Add emergency contacts"
+                               FontSize="12" 
+                               HorizontalOptions="Start" 
+                               TextColor="Gray" />
+                        <Button Text="Manage Contacts" 
+                                BackgroundColor="#FFA726" 
+                                TextColor="White" 
+                                FontAttributes="Bold" 
+                                CornerRadius="5" 
+                                HeightRequest="40"
+                                Clicked="OnManageContactsClicked" />
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- Incident Report and View Report Row -->
+            <Grid RowSpacing="15" ColumnSpacing="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Incident Report Card -->
+                <Border Grid.Column="0" StrokeThickness="0.05" Stroke="#42A5F5" BackgroundColor="#E3F2FD" Padding="15"
+                        HeightRequest="160" VerticalOptions="Start">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="17" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Teal" Opacity="0.1" Offset="4,4" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                        <Label Text="Incident Report" 
+                               FontSize="17" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start" />
+                        <Label Text="Report a new incident."
+                               FontSize="12" 
+                               HorizontalOptions="Start" 
+                               TextColor="Gray" />
+                        <Button Text="Report Incident" 
+                                BackgroundColor="#42A5F5" 
+                                TextColor="White" 
+                                FontAttributes="Bold" 
+                                CornerRadius="5" 
+                                HeightRequest="40"
+                                Clicked="OnReportIncidentClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- View Report Card -->
+                <Border Grid.Column="1" StrokeThickness="0.05" Stroke="#8BC34A" BackgroundColor="#E8F5E9" Padding="15" 
+                        HeightRequest="160" VerticalOptions="Start">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="17" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Teal" Opacity="0.1" Offset="4,4" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                        <Label Text="View Reports" 
+                               FontSize="17" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start" />
+                        <Label Text="Check your past incident reports."
+                               FontSize="12" 
+                               HorizontalOptions="Start" 
+                               TextColor="Gray" />
+                        <Button Text="View Reports" 
+                                BackgroundColor="#8BC34A" 
+                                TextColor="White" 
+                                FontAttributes="Bold" 
+                                CornerRadius="5" 
+                                HeightRequest="40"
+                                Clicked="OnViewReportsClicked" />
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- Helpline and Information Row -->
+            <Grid RowSpacing="15" ColumnSpacing="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Helpline Card -->
+                <Border Grid.Column="0" StrokeThickness="0.05" Stroke="#FFA726" BackgroundColor="#FFFDE7" Padding="15"
+                        HeightRequest="160" VerticalOptions="Start">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="17" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Teal" Opacity="0.1" Offset="4,4" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                        <Label Text="Helpline Numbers" 
+                               FontSize="17" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start" />
+                        <Label Text="Find emergency contacts for help."
+                               FontSize="12" 
+                               HorizontalOptions="Start" 
+                               TextColor="Gray" />
+                        <Button Text="Helpline Numbers" 
+                                BackgroundColor="#FFA726" 
+                                TextColor="White" 
+                                FontAttributes="Bold" 
+                                CornerRadius="5" 
+                                HeightRequest="40"
+                                Clicked="OnHelplineClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Information Card -->
+                <Border Grid.Column="1" StrokeThickness="0.05" Stroke="#4CAF50" BackgroundColor="#E8F5E9" Padding="15"
+                        HeightRequest="160" VerticalOptions="Start">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="17" />
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Teal" Opacity="0.1" Offset="4,4" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                        <Label Text="Information Center" 
+                               FontSize="17" 
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Start" />
+                        <Label Text="Find safety guidelines and more."
+                               FontSize="12" 
+                               HorizontalOptions="Start" 
+                               TextColor="Gray" />
+                        <Button Text="Information" 
+                                BackgroundColor="#4CAF50" 
+                                TextColor="White" 
+                                FontAttributes="Bold" 
+                                CornerRadius="5" 
+                                HeightRequest="40"
+                                Clicked="OnInformationClicked" />
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

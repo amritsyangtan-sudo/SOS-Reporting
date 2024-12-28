@@ -1,0 +1,21 @@
+<Shell
+    x:Class="ChildGuard.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ChildGuard"
+    Shell.FlyoutBehavior="Flyout"
+    Title="ChildGuard">
+
+    <!-- Register Routes -->
+    <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
+    <ShellContent Route="IncidentFormPage" ContentTemplate="{DataTemplate local:IncidentFormPage}" />
+    <ShellContent Route="IncidentListPage" ContentTemplate="{DataTemplate local:IncidentListPage}" />
+
+
+    <!-- Toolbar Logout Button -->
+    <Shell.ToolbarItems>
+        <ToolbarItem Text="Logout"
+                     Command="{Binding LogoutCommand}" />
+    </Shell.ToolbarItems>
+</Shell>

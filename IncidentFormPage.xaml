@@ -1,0 +1,59 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChildGuard.IncidentFormPage"
+             Title="Report Incident">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Name -->
+            <Label Text="Name" FontSize="16" />
+            <Entry x:Name="NameEntry" Placeholder="Enter your name" />
+
+            <!-- Incident Description -->
+            <Label Text="Incident Description" FontSize="16" />
+            <Editor x:Name="DescriptionEditor" Placeholder="Describe the incident" HeightRequest="100" />
+
+            <!-- Incident Type -->
+            <Label Text="Incident Type" FontSize="16" />
+            <Picker x:Name="IncidentTypePicker" Title="Select type">
+                <Picker.Items>
+                    <x:String>Accident</x:String>
+                    <x:String>Crime</x:String>
+                    <x:String>Fire</x:String>
+                    <x:String>Other</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- Latitude -->
+            <Label Text="Latitude" FontSize="16" />
+            <Entry x:Name="LatitudeEntry" Placeholder="Fetching latitude..." IsReadOnly="False" />
+
+            <!-- Longitude -->
+            <Label Text="Longitude" FontSize="16" />
+            <Entry x:Name="LongitudeEntry" Placeholder="Fetching longitude..." IsReadOnly="False" />
+
+            <!-- Current Address -->
+            <Label Text="Current Address" FontSize="16" />
+            <Entry x:Name="AddressEntry" Placeholder="Fetching address..." IsReadOnly="False" />
+
+            <!-- Current Date and Time -->
+            <Label Text="Date and Time" FontSize="16" />
+            <Entry x:Name="DateTimeEntry" IsReadOnly="True" />
+
+            <!-- Upload Document -->
+            <Label Text="Upload Document" FontSize="16" />
+            <Button Text="Upload File" x:Name="UploadFileButton" Clicked="OnUploadFileClicked" />
+
+            <!-- Submit Button -->
+            <Button Text="Submit Incident" BackgroundColor="#42A5F5" TextColor="White" CornerRadius="5"
+                    Clicked="OnSubmitIncidentClicked" />
+            <ActivityIndicator x:Name="Loader" 
+                           IsVisible="False" 
+                           IsRunning="False" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center" 
+                           Color="Blue" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

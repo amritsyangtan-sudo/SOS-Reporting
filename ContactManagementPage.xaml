@@ -1,0 +1,25 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChildGuard.ContactManagementPage"
+             Title="Manage Emergency Contacts">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <!-- Add Contact Section -->
+        <Entry x:Name="NameEntry" Placeholder="Enter Name" />
+        <Entry x:Name="PhoneEntry" Placeholder="Enter Phone Number" Keyboard="Telephone" />
+        <Button Text="Add Contact" Clicked="OnAddContactClicked" />
+
+        <!-- List of Contacts -->
+        <CollectionView x:Name="ContactsCollection">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="{Binding Name}" VerticalOptions="Center" />
+                        <Label Text="{Binding PhoneNumber}" VerticalOptions="Center" />
+                        <Button Text="Remove" Clicked="OnRemoveContactClicked" CommandParameter="{Binding}" Margin="10"/>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
